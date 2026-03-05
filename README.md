@@ -1,103 +1,136 @@
 ﻿# YTD Texture Optimizer
 
-Ferramenta desktop para abrir, visualizar e otimizar texturas de arquivos `.ytd` (GTA V), com foco em fluxo rápido, controle de qualidade e exportação prática.
+## PT-BR
+YTD Texture Optimizer é uma ferramenta desktop para abrir, visualizar e otimizar texturas de arquivos `.ytd` (GTA V), com foco em fluxo rápido, controle de qualidade e exportação prática.
 
-## Preview
-- Importação de 1 ou múltiplos YTDs
+### Sobre o projeto
+Este é um projeto **open source**, desenvolvido **100% com IA**, sem propósito lucrativo.
+A ideia é simples: compartilhar conhecimento, facilitar o trabalho da comunidade e evoluir a ferramenta em conjunto.
+
+Se você quiser melhorar algo, corrigir bugs, adicionar recursos ou refinar o código, sua contribuição é muito bem-vinda.
+Cada melhoria ajuda todo mundo.
+
+### Recursos principais
+- Importação de um ou múltiplos YTDs
 - Preview `Original`, `Optimized` e `Compare side by side`
-- Processamento por textura, seleção ou lote completo
+- Processamento por textura, por seleção ou em lote
 - Exportação de textura individual em `DDS` ou `PNG`
-- Exportação de YTD otimizado com opções de backup e CSV
-
-## Recursos principais
-- Hierarquia de YTD/texturas com seleção em massa
+- Exportação de YTD otimizado
+- Controle de mipmaps (manter original, gerar, níveis)
 - Exclusões por lista/padrões
-- Redimensionamento (dimensões customizadas, percentual, manter original)
-- Mipmaps (manter original, gerar automaticamente, níveis customizados)
-- Detecção e uso de encoders externos
 - Undo após processamento
 
-## Encoders suportados
+### Encoders suportados
 - `CodeWalker + SharpDX` (interno)
 - `ImageMagick`
 - `DirectXTex (texconv)`
 - `NVIDIA Texture Tools CLI (nvcompress)`
 
-No pacote `share` já gerado pelo projeto, os encoders externos podem ser incluídos para rodar direto em outro PC.
-
-## Requisitos
-### Para uso (app release)
+### Requisitos (uso)
 - Windows 10/11 x64
 - Microsoft Edge WebView2 Runtime
 - .NET Desktop Runtime 8.x (x64)
 
-### Para desenvolvimento
+### Requisitos (desenvolvimento)
 - Node.js + npm
-- Rust toolchain (cargo)
+- Rust toolchain (`cargo`)
 - .NET SDK 8.x
 - Dependências do Tauri para Windows
 
-## Como usar (usuário final)
-1. Abra o app (`ytd-texture-optimizer.exe` ou `run_portable.bat` no `share`)
-2. Clique em **Open YTD(s)** e selecione seus arquivos
+### Como usar
+1. Abra o app (`ytd-texture-optimizer.exe` ou `run_portable.bat`)
+2. Clique em **Open YTD(s)** e selecione os arquivos
 3. Ajuste encoder, resize, formato DDS e mipmaps
 4. Clique em **Process Selected** ou **Process All YTDs**
-5. Exporte:
-   - Textura individual (`DDS`/`PNG`) pelo menu da textura
-   - YTD otimizado pelo botão **Export YTD**
+5. Exporte texturas ou YTD otimizado
 
-## Como rodar em modo desenvolvimento
+### Rodar em desenvolvimento
 ```bash
 npm install
 npm run dev
 ```
 
-## Build
-### Frontend
+### Build
 ```bash
 npm run build
-```
-
-### Sidecar (.NET)
-```bash
 dotnet build src-tauri/sidecars/YtdCore/YtdCore.csproj -c Release
-```
-
-### App Tauri (release)
-```bash
 cd src-tauri
 ..\node_modules\.bin\tauri.cmd build --no-bundle
 ```
 
-## Estrutura (resumo)
-- `src/` UI React (painéis, store, preview, ações)
-- `src-tauri/src/` backend Tauri (comandos, sidecar bridge)
+### Estrutura (resumo)
+- `src/` UI React
+- `src-tauri/src/` backend Tauri
 - `src-tauri/sidecars/YtdCore/` motor de processamento YTD/DDS
-- `target/release/` binário gerado
+- `target/release/` binário release
 - `target/share/` pacote portátil para distribuição
-
-## Roadmap curto
-- Mais validações automáticas de textura/formato
-- Mais diagnósticos visuais no preview comparativo
-- Melhorias de performance em lotes grandes
-
-## Licença
-Defina aqui a licença do projeto (ex.: MIT).
 
 ---
 
-## English (short)
+## EN
+YTD Texture Optimizer is a desktop tool to open, preview, and optimize `.ytd` texture files (GTA V), focused on fast workflow, quality control, and practical export.
 
-Desktop app to open, preview and optimize GTA V `.ytd` textures.
+### About this project
+This is an **open-source** project, built **100% with AI**, with no profit-oriented purpose.
+The goal is to share knowledge, help the community, and improve the tool together.
 
-### Requirements
+If you want to improve anything, fix bugs, add features, or refine the code, your contribution is welcome.
+Every improvement helps everyone.
+
+### Main features
+- Import one or multiple YTD files
+- `Original`, `Optimized`, and `Compare side by side` preview
+- Per-texture, selected, or batch processing
+- Single texture export as `DDS` or `PNG`
+- Optimized YTD export
+- Mipmap controls (keep original, generate, custom levels)
+- Exclusion list/patterns
+- Undo after processing
+
+### Supported encoders
+- `CodeWalker + SharpDX` (internal)
+- `ImageMagick`
+- `DirectXTex (texconv)`
+- `NVIDIA Texture Tools CLI (nvcompress)`
+
+### Requirements (runtime)
 - Windows 10/11 x64
-- WebView2 Runtime
-- .NET Desktop Runtime 8.x
+- Microsoft Edge WebView2 Runtime
+- .NET Desktop Runtime 8.x (x64)
 
-### Quick start
-1. Open app
-2. Import YTD files
-3. Configure encoder/resize/mipmaps
-4. Process selected/all
+### Requirements (development)
+- Node.js + npm
+- Rust toolchain (`cargo`)
+- .NET SDK 8.x
+- Tauri dependencies for Windows
+
+### How to use
+1. Open the app (`ytd-texture-optimizer.exe` or `run_portable.bat`)
+2. Click **Open YTD(s)** and select files
+3. Configure encoder, resize, DDS format, and mipmaps
+4. Click **Process Selected** or **Process All YTDs**
 5. Export textures or optimized YTD
+
+### Run in development
+```bash
+npm install
+npm run dev
+```
+
+### Build
+```bash
+npm run build
+dotnet build src-tauri/sidecars/YtdCore/YtdCore.csproj -c Release
+cd src-tauri
+..\node_modules\.bin\tauri.cmd build --no-bundle
+```
+
+### Project structure (summary)
+- `src/` React UI
+- `src-tauri/src/` Tauri backend
+- `src-tauri/sidecars/YtdCore/` YTD/DDS processing engine
+- `target/release/` release binary
+- `target/share/` portable distribution package
+
+## License
+Choose and add a license file (for example, `MIT`).
