@@ -1,0 +1,36 @@
+# Node / frontend
+node_modules/
+dist/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Rust / Tauri build artifacts
+target/
+src-tauri/target/
+
+# .NET sidecar build artifacts
+src-tauri/sidecars/YtdCore/bin/
+src-tauri/sidecars/YtdCore/obj/
+
+# Local tools/downloads/cache
+tools/encoders/
+.appdata/
+.dotnet/
+.nuget/
+
+# IDE / OS
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.DS_Store
+Thumbs.db
+
+# Runtime / temp
+*.tmp
+*.temp
