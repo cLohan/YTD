@@ -131,6 +131,6 @@ cd src-tauri
 - `target/release/` release binary
 - `target/share/` portable distribution package
 
-## License
+## Screenshots
 <img width="1919" height="1040" alt="image" src="https://github.com/user-attachments/assets/fe44772c-62ba-4548-a705-0872906f21c6" />
 <img width="1915" height="1012" alt="image" src="https://github.com/user-attachments/assets/bd68cba7-c13c-4ae0-99c6-e9aea55dc38a" />
